@@ -51,6 +51,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.codesCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.cbKeepModManagerOpen = new System.Windows.Forms.CheckBox();
             this.region = new System.Windows.Forms.ComboBox();
             this.platformID = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -337,6 +338,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.cbKeepModManagerOpen);
             this.tabPage4.Controls.Add(this.region);
             this.tabPage4.Controls.Add(this.platformID);
             this.tabPage4.Controls.Add(this.label5);
@@ -356,6 +358,16 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Options";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // cbKeepModManagerOpen
+            // 
+            this.cbKeepModManagerOpen.AutoSize = true;
+            this.cbKeepModManagerOpen.Location = new System.Drawing.Point(9, 306);
+            this.cbKeepModManagerOpen.Name = "cbKeepModManagerOpen";
+            this.cbKeepModManagerOpen.Size = new System.Drawing.Size(153, 17);
+            this.cbKeepModManagerOpen.TabIndex = 14;
+            this.cbKeepModManagerOpen.Text = "Keep Mod Manager open?";
+            this.cbKeepModManagerOpen.UseVisualStyleBackColor = true;
             // 
             // region
             // 
@@ -811,5 +823,6 @@
 		private System.Windows.Forms.ComboBox region;
 		private System.Windows.Forms.ComboBox platformID;
 		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.CheckBox cbKeepModManagerOpen;
 	}
 }

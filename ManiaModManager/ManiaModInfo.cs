@@ -20,7 +20,7 @@ namespace ManiaModManager
 				yield break;
 			}
 
-			foreach (DirectoryInfo item in directoryInfo.GetDirectories())
+			foreach (var item in directoryInfo.GetDirectories())
 			{
 				if (item.Name.Equals("data", StringComparison.OrdinalIgnoreCase) || item.Name[0] == '.')
 				{

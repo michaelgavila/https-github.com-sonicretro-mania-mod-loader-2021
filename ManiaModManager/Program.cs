@@ -99,10 +99,19 @@ namespace ManiaModManager
 				return;
 			}
 
+			InitModsFolder();
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new MainForm());
 			UriQueue.Close();
+		}
+
+		private static void InitModsFolder()
+		{
+			var modDir = Path.Combine(Environment.CurrentDirectory, "mods");
+			if (!Directory.Exists(modDir))
+				Directory.CreateDirectory(modDir);
+
 		}
 	}
 }

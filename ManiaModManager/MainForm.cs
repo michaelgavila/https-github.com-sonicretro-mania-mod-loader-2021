@@ -131,6 +131,7 @@ namespace ManiaModManager
 			checkUpdateModsStartup.Checked = loaderini.ModUpdateCheck;
 			comboUpdateFrequency.SelectedIndex = (int)loaderini.UpdateUnit;
 			numericUpdateFrequency.Value = loaderini.UpdateFrequency;
+			cbKeepModManagerOpen.Checked = loaderini.KeepModManagerOpen;
 		}
 
 		private void HandleUri(string uri)
@@ -831,6 +832,7 @@ namespace ManiaModManager
 			loaderini.ModUpdateCheck = checkUpdateModsStartup.Checked;
 			loaderini.UpdateUnit = (UpdateUnit)comboUpdateFrequency.SelectedIndex;
 			loaderini.UpdateFrequency = (int)numericUpdateFrequency.Value;
+			loaderini.KeepModManagerOpen = cbKeepModManagerOpen.Checked;
 
 			IniSerializer.Serialize(loaderini, loaderinipath);
 
@@ -982,9 +984,19 @@ namespace ManiaModManager
 				sb.Append("console=true;");
 			if (startingScene.SelectedIndex > 0)
 				sb.Append(scenelist[startingScene.SelectedIndex]);
-			Process process = Process.Start("SonicMania.exe", sb.ToString());
-			process?.WaitForInputIdle(10000);
-			Close();
+			Process process = Process.Start(@"D:\Games\Sonic Mania\SonicMania.exe", sb.ToString());
+
+			try
+			{
+				process?.WaitForInputIdle(10000);
+			}
+			catch (InvalidOperationException ioe)
+			{
+				
+			}
+			
+			if (!cbKeepModManagerOpen.Checked)
+				Close(); // Closes the ModManager.
 		}
 
 		private void saveButton_Click(object sender, EventArgs e)
@@ -1337,6 +1349,11 @@ namespace ManiaModManager
 		private void origMusicPlayerCheckBox_CheckedChanged(object sender, EventArgs e)
 		{
 			blueSpheresTempoCheckBox.Enabled = speedShoesTempoCheckBox.Enabled = !origMusicPlayerCheckBox.Checked;
+		}
+
+		private void richTextBox1_TextChanged(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

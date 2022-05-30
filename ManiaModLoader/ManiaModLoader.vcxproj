@@ -15,7 +15,7 @@
     <ProjectGuid>{DAC43A3C-6A1A-4755-BDF7-C72FB7201965}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>ManiaModLoader</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
     <ProjectName>ManiaModLoader</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -69,6 +69,10 @@
       <AdditionalDependencies>bass.lib;bass_vgmstream.lib;bass_fx.lib;dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\extlib\bass</AdditionalLibraryDirectories>
     </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>

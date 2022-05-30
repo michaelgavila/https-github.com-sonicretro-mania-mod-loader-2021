@@ -99,6 +99,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MMM.ico" />
+    <Content Include="README.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>xcopy "$(outDir)" "$(SolutionDir)ManiaModManager\bin\Debug\mods" /h /i /c /k /e /r /y /f
+xcopy "$(SolutionDir)data" "$(SolutionDir)ManiaModManager\bin\Debug\mods" /h /i /c /k /e /r /y /f
+xcopy "$(SolutionDir)extlib\bass" "$(SolutionDir)ManiaModManager\bin\Debug\" /h /i /c /k /e /r /y /f
+</PreBuildEvent>
+  </PropertyGroup>
 </Project>
